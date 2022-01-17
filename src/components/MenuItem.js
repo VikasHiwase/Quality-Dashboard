@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// internal
-import { useStyles } from "../Styles";
-
 // @material-ui
 import { Icon, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 
 // external
 import clsx from "clsx";
 
-const MenuItem = ({ label, icon, activeIcon, path }) => {
+// internal
+import { useStyles } from "../Styles";
+
+const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
   const [active, setActive] = useState(true);
 
   const classes = useStyles();
@@ -31,6 +31,7 @@ const MenuItem = ({ label, icon, activeIcon, path }) => {
       to={path}
       button
       className={clsx(classes.menuItem, active && classes.menuItemActive)}
+      onClick={onClick}
     >
       <ListItemIcon>
         <Icon>
